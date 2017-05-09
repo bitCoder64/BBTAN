@@ -219,7 +219,7 @@ def new_game():
     position = [WIDTH / 2, BOTTOM_HEIGHT]
     angle = math.pi * 1.5
     del_angle = 0
-    balls_to_shoot = 1
+    balls_to_shoot = 0
     ready_next = False
     
     next_level()
