@@ -4,7 +4,7 @@ import random
 
 WIDTH = 350
 HEIGHT = 600
-BALL_RADIUS = 3
+BALL_RADIUS = 7 #Changed the radius from 3 to prevent colllision abuse by getting the balls wedged between the tiles
 BALL_VEL = 10
 CORNER_DIR = [ [1, 1], [1, -1], [-1, -1], [-1, 1] ]
 TOP_HEIGHT = 45
@@ -219,7 +219,7 @@ def new_game():
     position = [WIDTH / 2, BOTTOM_HEIGHT]
     angle = math.pi * 1.5
     del_angle = 0
-    balls_to_shoot = 0
+    balls_to_shoot = 1
     ready_next = False
     
     next_level()
@@ -286,7 +286,7 @@ def timer_handler():
     global time, position, angle, balls_to_shoot, ball_set, ready_next, next_pos0
     
     time += 1
-    if time % 20 == 0 and balls_to_shoot > 0:
+    if time % 10 == 0 and balls_to_shoot > 0: #Changed from time % 20 to speed up the ball launching
         ball_set.add( Ball(position, angle_to_dir(angle)) )
         balls_to_shoot -= 1
         if balls_to_shoot == 0:
